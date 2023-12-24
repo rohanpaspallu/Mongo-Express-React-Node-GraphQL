@@ -20,6 +20,8 @@ const ClientType = new GraphQLObjectType({
     phone: { type: GraphQLString },
   }),
 });
+
+//ProjectType
 const ProjectType = new GraphQLObjectType({
   name: "Project",
   fields: () => ({
@@ -62,6 +64,16 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+const mutation = new GraphQLObjectType({
+  name: "Mutation",
+  fields: {
+    addClient: {
+      type: ClientType,
+    },
+  },
+});
+
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation,
 });
