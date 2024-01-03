@@ -1,3 +1,4 @@
+import AddClientsModal from "./components/AddClientsModal";
 import Clients from "./components/Clients";
 import Header from "./components/Header";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
@@ -31,6 +32,7 @@ function App() {
       <ApolloProvider client={client}>
         <Header />
         <div className="container">
+          <AddClientsModal />
           <Clients />
         </div>
       </ApolloProvider>
