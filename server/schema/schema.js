@@ -94,6 +94,13 @@ const mutation = new GraphQLObjectType({
       },
       resolve: async (parent, args) => {
         try {
+          Project.deleteMany({ clientId: args.id })
+            .then(() => {
+              console.log("Projects deleted successfully");
+            })
+            .catch((err) => {
+              console.error(err);
+            });
           const deletedClient = await Client.findOneAndDelete({ _id: args.id });
           return deletedClient;
         } catch (error) {
